@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+    background-color: #222;
+}
+
+* {
+    color: #ccc !important;
+    font-family: 'Open Sans', sans-serif !important;
+    color-scheme: dark light;
+}
+a {
+    color: cornflowerblue !important;
+}
+
+#b_header {
+    border-bottom: 1px solid #444 !important;
+}
+
+#b_results>li {
+    background-color: #333 !important;
+    border-radius: 12px;
+}
+
+.b_active::after {
+    background-color: #402dde !important;
+    border-radius: 2px;
+}
+
+.b_scopebar>ul>li>a {
+    color: #aaa !important;
+}
+
+cite {
+    color: #58a02e !important;
+}
+
+.b_searchboxForm {
+    background-color: #333 !important;
+}
+
+.algoSlug_icon {
+    padding: 3px 4px !important;
+    color: #888 !important;
+    border: none !important;
+    background-color: #444 !important;
+}
+
+.openans_gradient_div {
+    background: linear-gradient(to right, #333, #222) !important;
+}
+
+.df_alsoAskCard {
+    border-color: #555 !important;
+}
+
+#b_results>li#mfa_root.fabcolapse {
+    background-color: transparent !important;
+}
+
+#rs_lgw_list a {
+    background-color: #333 !important;
+    border-radius: 0 16px 16px 0 !important;
+}
+
+#brsv3 > ul > li > a {
+    background-color: #222 !important;
+}
+
+div > div > a.na_ccw,
+#na_ti > div > div > div.itm_cap.b_overflow.wimg,
+#b_results > li > div > div.captionMediaCard > div {
+    background-color: #2a2a2a !important;
+}
+
+#b_context > li > div > div > div.b_sideBleed.lite-entcard-ans > div.lite-entcard-exp.exp-rs {
+    background-color: transparent !important;
+}
+
+#tob_rail_slide,
+#tob_rail_container,
+#b_context > li > div > div > div.b_sideBleed.lite-entcard-ans {
+    background-color: transparent !important;
+    border-radius: 4px;
+    border: 1px solid #333 !important;
+}
+
+footer {
+    background-color: #333 !important;
+}
+
+/*search */
+.b_ds5 > .mfa_btn,
+#sw_as > div,
+#sw_as > div > div,
+#sw_as > div > ul,
+#sw_as > div > ul :active {
+    background-color: #333 !important;
+}
+
+#sw_as > div > ul :hover {
+    background-color: #444 !important;
+    border-radius: 6px;
+}
+
+/* sing-in button */
+input#id_a {
+    background-color: #333;
+    border: 1px solid #666;
+    border-radius: 6px;
+}
+
+/*inline tab views*/
+div.tab-head > div,
+div.tab-head > div > ul,
+div.tab-head > div > ul > li {
+    background-color: #333 !important;
+}
+
+.lite-entcard-blk {
+    background-color: #222 !important;
+}
+
+/*settings pane*/
+#HBContent {
+    background-color: #333 !important;
+}
+
+#sydwrap_wrapper {
+    background-color: #333 !important;
+}
+
+.b_antiSideBleed.b_antiTopBleed {
+    background-color: #333 !important;
+}
+
+#b_filterTabBar > a {
+    background-color: #333 !important;
+    border: 1px solid #666 !important;
+}
+
+#b_filterTabBar > a.selectedFilter {
+    background-color: #444 !important;
+}
+
+#overlayPanel {
+    background-color: #333 !important;
+}

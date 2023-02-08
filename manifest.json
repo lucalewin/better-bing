@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "better-bing",
+  "description": "Enhance your search experience on Bing with a dark mode and visual improvements",
+  "version": "0.1.0",
+  "permissions": [
+    "https://www.bing.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.bing.com/search?*"],
+      "css": ["style.css"],
+      "run_at": "document_start"
+    }
+  ]
+}
