@@ -91,6 +91,7 @@ const handle_welcome_message = (conversationNode) => {
 
   let welcome_container = shadow.querySelector("cib-welcome-container").shadowRoot;
 
+  // title
   let style = document.createElement("style");
   style.innerHTML = `
   .container-title {
@@ -105,6 +106,7 @@ const handle_welcome_message = (conversationNode) => {
   `;
   welcome_container.appendChild(style);
 
+  // example queries
   let container_item = welcome_container.querySelector("div.container-item");
   let welcome_items = container_item.getElementsByTagName("cib-welcome-item");
   
@@ -125,6 +127,23 @@ const handle_welcome_message = (conversationNode) => {
     `;
     container.appendChild(item_style);
   }
+
+  // conversation style
+  let cibToneSelectorNode = welcome_container.querySelector("cib-tone-selector").shadowRoot;
+  let toneStyle = document.createElement("style");
+  toneStyle.innerHTML = `
+    .options-list-container {
+      background-color: #414141 !important;
+    }
+    button {
+      background-color: #4b4b4b !important;
+      color: #ccc !important;
+    }
+    button[selected] {
+      color: #fefefe !important;
+    }
+  `;
+  cibToneSelectorNode.appendChild(toneStyle);
 }
 
 const handle_messages = (conversationNode) => {
@@ -158,40 +177,12 @@ const message_group_callback = (mutationList, observer) => {
           stylesheet.innerHTML =
           `
             cib-message[type='text'] {
-              background-color: #252525 !important;
+              background-color: #333 !important;
             }
           `;
           node.shadowRoot.appendChild(stylesheet);
-          // handle_message_group(node);
         }
       }
     }
   }
 }
-
-// const handle_message_group = (messageGroupNode) => {
-//   let is_bot = messageGroupNode.getAttribute("source") == "bot";
-//   let shadow = messageGroupNode.shadowRoot;
-//   // console.log("new message group:", shadow);
-
-//   if (is_bot) {
-//     new MutationObserver(bot_message_callback).observe(shadow, config);
-//   }
-// }
-
-// const bot_message_callback = (mutationList, observer) => {
-//   for (const mutation of mutationList) {
-//     if (mutation.type === "childList") {
-//       for (let node of mutation.addedNodes) {
-//         if (node.tagName == "CIB-MESSAGE") {
-//           if (node.getAttribute("type") == "text") {
-//             console.log("new bot text", node);
-            
-//             // each turn only on bot text is generated
-//             observer.disconnect();
-//           }
-//         }
-//       }
-//     }
-//   }
-// }

@@ -14,8 +14,9 @@ a {
 }
 
 #b_header {
-    border-bottom: 1px solid #444 !important;
+    /* FIXME border-bottom: 1px solid #444 !important; */
     background-color: #222 !important;
+    z-index: 3 !important;
 }
 
 #b_results>li {
