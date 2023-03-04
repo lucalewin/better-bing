@@ -14,7 +14,9 @@ a {
 }
 
 #b_header {
-    border-bottom: 1px solid #444 !important;
+    /* FIXME border-bottom: 1px solid #444 !important; */
+    background-color: #222 !important;
+    z-index: 3 !important;
 }
 
 #b_results>li {
@@ -44,6 +46,10 @@ cite {
     color: #888 !important;
     border: none !important;
     background-color: #444 !important;
+}
+
+#b_results > li.b_algo.b_algoBorder.b_algo_feedback.b_snippetGobig.b_rcgbt_bg {
+    background-color: #333333 !important;
 }
 
 .openans_gradient_div {

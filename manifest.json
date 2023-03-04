@@ -11,6 +11,11 @@
       "matches": ["https://www.bing.com/search?*"],
       "css": ["style.css"],
       "run_at": "document_start"
+    },
+    {
+      "matches": ["https://www.bing.com/search?*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
     }
   ]
 }
