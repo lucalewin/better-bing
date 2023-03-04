@@ -9,8 +9,13 @@
   "content_scripts": [
     {
       "matches": ["https://www.bing.com/search?*"],
-      "css": ["style.css"],
+      "css": ["style.css", "chat.css"],
       "run_at": "document_start"
+    },
+    {
+      "matches": ["https://www.bing.com/search?*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
     }
   ]
 }
