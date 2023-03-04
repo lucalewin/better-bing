@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "better-bing",
   "description": "Enhance your search experience on Bing with a dark mode and visual improvements",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "permissions": [
     "https://www.bing.com/*"
   ],
