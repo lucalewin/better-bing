@@ -9,7 +9,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.bing.com/search?*"],
-      "css": ["style.css", "chat.css"],
+      "css": ["style.css"],
       "run_at": "document_start"
     },
     {
