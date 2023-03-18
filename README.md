@@ -1,6 +1,6 @@
 # Better Bing
 
-A Chrome extension that adds a dark mode and visual improvements to Bing search.
+A Chrome/Edge extension that adds a dark mode and visual improvements to Bing search.
 
 ## Features
 
@@ -10,7 +10,8 @@ A Chrome extension that adds a dark mode and visual improvements to Bing search.
 ## Installation
 
 1. Clone or download this repository.
-2. Go to chrome://extensions/ in your Chrome browser.
+2. Go to `chrome://extensions/` in your Chrome browser  
+or `edge://extensions/` in your Edge browser.
 3. Enable "Developer mode" in the top right corner.
 4. Click "Load unpacked" and select the directory of the repository you just cloned/downloaded.
 
@@ -25,4 +26,4 @@ If you would like to contribute to the development of Better Bing, feel free to 
 
 ## Disclaimer
 
-I am new to the process of creating Chrome extensions and may not be familiar with all the best practices and techniques. The information and code provided here may not be optimal or correct, and I make no guarantees as to their functionality. Your help and guidance in improving and correcting my understanding of creating Chrome extensions is greatly appreciated.
+I am new to the process of creating browser extensions and may not be familiar with all the best practices and techniques. The information and code provided here may not be optimal or correct, and I make no guarantees as to their functionality. Your help and guidance in improving and correcting my understanding of creating browser extensions is greatly appreciated.
