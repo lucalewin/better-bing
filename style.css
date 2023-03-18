@@ -1,14 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-body {
-    background-color: #222;
+:root {
+    --bb-bg-color: #333;
 }
 
 * {
     color: #ccc !important;
     font-family: 'Open Sans', sans-serif !important;
-    color-scheme: dark light;
+    color-scheme: dark light !important;
+    background-color: transparent !important;
 }
+
+body {
+    background-color: #222 !important;
+}
+
 a {
     color: cornflowerblue !important;
 }
@@ -20,7 +26,7 @@ a {
 }
 
 #b_results>li {
-    background-color: #333 !important;
+    background-color: var(--bb-bg-color) !important;
     border-radius: 12px;
 }
 
@@ -37,8 +43,13 @@ cite {
     color: #58a02e !important;
 }
 
+#b_context {
+    background-color: var(--bb-bg-color) !important;
+    border-radius: 12px !important;
+}
+
 .b_searchboxForm {
-    background-color: #333 !important;
+    background-color: var(--bb-bg-color) !important;
 }
 
 .algoSlug_icon {
@@ -49,11 +60,11 @@ cite {
 }
 
 #b_results > li.b_algo.b_algoBorder.b_algo_feedback.b_snippetGobig.b_rcgbt_bg {
-    background-color: #333333 !important;
+    background-color: var(--bb-bg-color) !important;
 }
 
 .openans_gradient_div {
-    background: linear-gradient(to right, #333, #222) !important;
+    background: linear-gradient(to right, var(--bb-bg-color), #222) !important;
 }
 
 .df_alsoAskCard {
@@ -65,7 +76,7 @@ cite {
 }
 
 #rs_lgw_list a {
-    background-color: #333 !important;
+    background-color: var(--bb-bg-color) !important;
     border-radius: 0 16px 16px 0 !important;
 }
 
@@ -88,11 +99,11 @@ div > div > a.na_ccw,
 #b_context > li > div > div > div.b_sideBleed.lite-entcard-ans {
     background-color: transparent !important;
     border-radius: 4px;
-    border: 1px solid #333 !important;
+    border: 1px solid var(--bb-bg-color) !important;
 }
 
 footer {
-    background-color: #333 !important;
+    background-color: var(--bb-bg-color) !important;
 }
 
 /*search */
@@ -101,7 +112,7 @@ footer {
 #sw_as > div > div,
 #sw_as > div > ul,
 #sw_as > div > ul :active {
-    background-color: #333 !important;
+    background-color: var(--bb-bg-color) !important;
 }
 
 #sw_as > div > ul :hover {
@@ -111,7 +122,7 @@ footer {
 
 /* sing-in button */
 input#id_a {
-    background-color: #333;
+    background-color: var(--bb-bg-color);
     border: 1px solid #666;
     border-radius: 6px;
 }
@@ -120,7 +131,7 @@ input#id_a {
 div.tab-head > div,
 div.tab-head > div > ul,
 div.tab-head > div > ul > li {
-    background-color: #333 !important;
+    background-color: var(--bb-bg-color) !important;
 }
 
 .lite-entcard-blk {
@@ -129,19 +140,19 @@ div.tab-head > div > ul > li {
 
 /*settings pane*/
 #HBContent {
-    background-color: #333 !important;
+    background-color: var(--bb-bg-color) !important;
 }
 
 #sydwrap_wrapper {
-    background-color: #333 !important;
+    background-color: var(--bb-bg-color) !important;
 }
 
 .b_antiSideBleed.b_antiTopBleed {
-    background-color: #333 !important;
+    background-color: var(--bb-bg-color) !important;
 }
 
 #b_filterTabBar > a {
-    background-color: #333 !important;
+    background-color: var(--bb-bg-color) !important;
     border: 1px solid #666 !important;
 }
 
@@ -150,5 +161,5 @@ div.tab-head > div > ul > li {
 }
 
 #overlayPanel {
-    background-color: #333 !important;
+    background-color: var(--bb-bg-color) !important;
 }
