@@ -1,10 +1,15 @@
 {
-  "manifest_version": 2,
-  "name": "better-bing",
+  "manifest_version": 3,
+  "name": "Better Bing",
+  "author": "Luca Lewin <contact@lucalewin.dev>",
   "description": "Enhance your search experience on Bing with a dark mode and visual improvements",
-  "version": "0.2.0",
-  "permissions": [
-    "https://www.bing.com/*"
+  "version": "0.3.0",
+  "icons": {
+    "48": "images/icon.png",
+    "96": "images/icon@2x.png"
+  },
+  "host_permissions": [
+    "https://www.bing.com/"
   ],
   "content_scripts": [
     {
