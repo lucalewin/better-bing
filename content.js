@@ -173,6 +173,7 @@ const message_group_callback = (mutationList, observer) => {
     if (mutation.type === "childList") {
       for (let node of mutation.addedNodes) {
         if (node.tagName == "CIB-MESSAGE-GROUP") {
+          let messageGroup = node.shadowRoot;
           let stylesheet = document.createElement("style");
           stylesheet.innerHTML =
           `
@@ -180,9 +181,48 @@ const message_group_callback = (mutationList, observer) => {
               background-color: #333 !important;
             }
           `;
-          node.shadowRoot.appendChild(stylesheet);
+          messageGroup.appendChild(stylesheet);
+
+          // change color of text
+          // only if the message group is from the bot
+          new MutationObserver(cib_message_callback).observe(messageGroup, config);
         }
       }
     }
   }
+}
+
+function cib_message_callback(mutationList, observer) {
+  for (const mutation of mutationList) {
+    if (mutation.type === "childList") {
+      for (let node of mutation.addedNodes) {
+        if (node.tagName == "CIB-MESSAGE") {
+          if (node.getAttribute("type") == "text") {
+            let cibMessage = node.shadowRoot;
+
+            new MutationObserver((mutationList1, observer1) => {
+              for (const mutation of mutationList1) {
+                if (mutation.type == "childList" || mutation.type == "subtree") {
+                  for (let node of mutation.addedNodes) {
+                    if (node.tagName == "STYLE") {
+                      return;
+                    }
+                  }
+                  injectStyleNodeIntoMessageDiv(cibMessage);
+                }
+              }
+            }).observe(cibMessage, config);
+          }
+        }
+      }
+    }
+  }
+}
+
+function injectStyleNodeIntoMessageDiv(messageDiv) {
+  let style = document.createElement("style");
+  style.innerHTML = '*:not(sup) { color: #dadada !important; }';
+
+  let textBlock = messageDiv.querySelector(".ac-textBlock");
+  textBlock.appendChild(style);
 }
