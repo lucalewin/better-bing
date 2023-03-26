@@ -200,20 +200,29 @@ function cib_message_callback(mutationList, observer) {
           if (node.getAttribute("type") == "text") {
             let cibMessage = node.shadowRoot;
 
-            setTimeout(function () {
-              let style = document.createElement("style");
-              style.innerHTML = '*:not(sup) { color: #dadada !important; }';
-
-              let textBlock = cibMessage.querySelector(".ac-textBlock");
-              textBlock.appendChild(style);
-
-              console.log(textBlock);
-            }, 4000);
-
-            observer.disconnect();
+            new MutationObserver((mutationList1, observer1) => {
+              for (const mutation of mutationList1) {
+                if (mutation.type == "childList" || mutation.type == "subtree") {
+                  for (let node of mutation.addedNodes) {
+                    if (node.tagName == "STYLE") {
+                      return;
+                    }
+                  }
+                  injectStyleNodeIntoMessageDiv(cibMessage);
+                }
+              }
+            }).observe(cibMessage, config);
           }
         }
       }
     }
   }
+}
+
+function injectStyleNodeIntoMessageDiv(messageDiv) {
+  let style = document.createElement("style");
+  style.innerHTML = '*:not(sup) { color: #dadada !important; }';
+
+  let textBlock = messageDiv.querySelector(".ac-textBlock");
+  textBlock.appendChild(style);
 }
