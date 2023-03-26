@@ -30,9 +30,9 @@ const handle_cib = (root_node) => {
   let background = root_node.querySelector("cib-background");
   let conversation = root_node.querySelector("cib-conversation");
   let actionBar = root_node.querySelector("cib-action-bar");
-  let serpFeedback = root_node.querySelector("cib-serp-feedback");
-  let hoverCard = root_node.querySelector("cib-hover-card");
-  let hover = root_node.querySelector("cib-hover");
+  // let serpFeedback = root_node.querySelector("cib-serp-feedback");
+  // let hoverCard = root_node.querySelector("cib-hover-card");
+  // let hover = root_node.querySelector("cib-hover");
 
   change_background(root_node, background);
   handle_conversation(root_node, conversation);
@@ -149,24 +149,24 @@ const handle_welcome_message = (conversationNode) => {
 const handle_messages = (conversationNode) => {
   let shadow = conversationNode.shadowRoot;
   let cib_chat_main = shadow.querySelector("#cib-chat-main");
-  
-  const chat_callback = (mutationList, observer) => {
-    for (const mutation of mutationList) {
-      if (mutation.type === "childList") {
-        for (let node of mutation.addedNodes) {
-          if (node.tagName == "CIB-CHAT-TURN") {
-            let shadow = node.shadowRoot;
-            new MutationObserver(message_group_callback)
-              .observe(shadow, { childList: true, subtree: true });
-          }
-        }
-      }
-    }
-  };
 
   // Create an observer instance linked to the callback function
   new MutationObserver(chat_callback).observe(cib_chat_main, config);
 }
+
+const chat_callback = (mutationList, observer) => {
+  for (const mutation of mutationList) {
+    if (mutation.type === "childList") {
+      for (let node of mutation.addedNodes) {
+        if (node.tagName == "CIB-CHAT-TURN") {
+          let shadow = node.shadowRoot;
+          new MutationObserver(message_group_callback)
+            .observe(shadow, { childList: true, subtree: true });
+        }
+      }
+    }
+  }
+};
 
 const message_group_callback = (mutationList, observer) => {
   for (const mutation of mutationList) {
@@ -183,9 +183,16 @@ const message_group_callback = (mutationList, observer) => {
           `;
           messageGroup.appendChild(stylesheet);
 
-          // change color of text
-          // only if the message group is from the bot
-          new MutationObserver(cib_message_callback).observe(messageGroup, config);
+          // check if first child of messageGroup is of type 'text'
+          let message = messageGroup.querySelector('cib-message[type="text"]');
+
+          if (message != null) {
+            updateMessageStylesheet(message.shadowRoot);
+          } else {
+            // change color of text
+            // only if the message group is from the bot
+            new MutationObserver(cib_message_callback).observe(messageGroup, config);
+          }
         }
       }
     }
@@ -198,25 +205,30 @@ function cib_message_callback(mutationList, observer) {
       for (let node of mutation.addedNodes) {
         if (node.tagName == "CIB-MESSAGE") {
           if (node.getAttribute("type") == "text") {
-            let cibMessage = node.shadowRoot;
-
-            new MutationObserver((mutationList1, observer1) => {
-              for (const mutation of mutationList1) {
-                if (mutation.type == "childList" || mutation.type == "subtree") {
-                  for (let node of mutation.addedNodes) {
-                    if (node.tagName == "STYLE") {
-                      return;
-                    }
-                  }
-                  injectStyleNodeIntoMessageDiv(cibMessage);
-                }
-              }
-            }).observe(cibMessage, config);
+            updateMessageStylesheet(node.shadowRoot);
           }
         }
       }
     }
   }
+}
+
+function updateMessageStylesheet(messageNode) {
+  const changeFontColorCallback = (mutationList1, observer1) => {
+    for (const mutation of mutationList1) {
+      if (mutation.type == "childList" || mutation.type == "subtree") {
+        for (let node of mutation.addedNodes) {
+          if (node.tagName == "STYLE") {
+            return;
+          }
+        }
+        injectStyleNodeIntoMessageDiv(messageNode);
+      }
+    }
+  };
+
+  new MutationObserver(changeFontColorCallback)
+    .observe(messageNode, config);
 }
 
 function injectStyleNodeIntoMessageDiv(messageDiv) {
