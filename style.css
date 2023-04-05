@@ -11,6 +11,19 @@
     background-color: transparent !important;
 }
 
+
+div.user-prefix {
+    /* hide the text in this div
+    but do not change the size, otherwise
+    the tab button would be displayed
+    in a weird place */
+    color: transparent !important;
+}
+
+div.ghost {
+    color: #888 !important;
+}
+
 body {
     background-color: #222 !important;
 }
@@ -21,6 +34,7 @@ a {
 
 #b_header {
     /* FIXME border-bottom: 1px solid #444 !important; */
+    border-bottom: none !important;
     background-color: #222 !important;
     z-index: 3 !important;
 }
