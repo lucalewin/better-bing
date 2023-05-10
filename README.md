@@ -9,11 +9,17 @@ A Chrome/Edge extension that adds a dark mode and visual improvements to Bing se
 
 ## Installation
 
+### Chrome / Edge
+
 1. Clone or download this repository.
 2. Go to `chrome://extensions/` in your Chrome browser  
 or `edge://extensions/` in your Edge browser.
 3. Enable "Developer mode" in the top right corner.
 4. Click "Load unpacked" and select the directory of the repository you just cloned/downloaded.
+
+### Firefox
+
+You can install Better Bing with the Firefox Add-on Store [here](https://addons.mozilla.org/en-US/firefox/addon/better-bing/).
 
 ## Usage
 
